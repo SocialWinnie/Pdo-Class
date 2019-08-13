@@ -68,6 +68,27 @@
 			$this->dbWork = null;
 
 		}
+		
+		// show full processlist
+		// show master status\G;
+		// show slave status\G
+		
+		public function ping()
+		{
+			
+			try {
+				
+				$this->dbWork->query('SELECT 1');
+				
+			} catch (PDOException $e) {
+				
+				
+				
+			}
+			
+			return true;
+			
+		}
 
 		public function db_select($sql, $status = 0)
 		{
@@ -114,8 +135,8 @@
 			
 	}
 	
-	$test = new DbSet();
-	$sql = "SELECT * FROM `dbwhere` WHERE 1";
-	$data = $test->db_select($sql, 1);
-	print_r($data);
+	// $test = new DbSet();
+	// $sql = "SELECT * FROM `dbwhere` WHERE 1";
+	// $data = $test->db_select($sql, 1);
+	// print_r($data);
 ?>
